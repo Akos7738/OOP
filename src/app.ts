@@ -1,9 +1,9 @@
 class NumberHandler {
-    private _start: number;
-    private _end: number;
-    private _count: number;
-    private _numbers: number[];
-    private _stats: Record <number, number>;
+    protected _start: number;
+    protected _end: number;
+    protected _count: number;
+    protected _numbers: number[];
+    protected _stats: Record <number, number>;
 
     constructor(start: number, end: number, count: number) {
         this._start = start;
@@ -57,4 +57,22 @@ class NumberHandler {
         }
         return i + 1;
     }
+
+    static help() {
+        console.log("sth... sth... sth...");
+    }
 }
+
+class ExtendedNumHandler extends NumberHandler {
+    constructor(start: number, end: number, count: number, range: number) {
+        super(start, end, count);
+    }
+}
+
+const num = new NumberHandler(1, 10, 20);
+
+NumberHandler.help();
+console.log(num.rndNumbers());
+console.log(num.filterNums(5));
+/* 
+const num2 = new ExtendedNumHandler() */
